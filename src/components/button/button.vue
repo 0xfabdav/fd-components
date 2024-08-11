@@ -17,14 +17,20 @@
 
 <script lang="ts" setup>
 import "./button.css";
-import { type PropType } from "vue";
 
-defineProps({
-    label: { type: String, required: true },
-    filled: { type: Boolean, default: true },
-    disabled: { type: Boolean, default: false },
-    variant: { type: String as PropType<"normal" | "danger">, default: "normal" },
-});
+withDefaults(
+    defineProps<{
+        label: string;
+        filled: boolean;
+        disabled: boolean;
+        variant: "normal" | "danger";
+    }>(),
+    {
+        filled: true,
+        disabled: false,
+        variant: "normal",
+    },
+);
 
 const emit = defineEmits<{
     (e: "click", clickData: any): void;
