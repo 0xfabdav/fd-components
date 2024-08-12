@@ -24,6 +24,10 @@ defineProps({
     disabled: { type: Boolean, default: false },
 });
 
+defineSlots<{
+    default?: (props: { checkboxId: string }) => any;
+}>();
+
 const emit = defineEmits<{
     (e: "update:modelValue", data: any): void;
 }>();

@@ -18,6 +18,10 @@ const props = defineProps({
     options: { type: Array<T>, required: true },
 });
 
+defineSlots<{
+    default?: (props: T) => any;
+}>();
+
 const model = defineModel<Array<T>>({ required: true });
 
 const updateModelValue = (checked: boolean, id: string) => {
